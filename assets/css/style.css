@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -19,28 +20,29 @@ body {
 .navigation {
     display: flex;
     justify-content: end;
-}
-
-.container__item:nth-child(2) {
-    max-width: 100%;
-    width: 1100px;
-    margin: auto;
-    display: flex;
-    justify-content: end;
-    margin-top: -30px;
+    margin-top: -20px;
 }
 
 .bar {
+    height: 20px;
+    width: 20px;
+    margin: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check {
     height: 10px;
     width: 10px;
-    cursor: pointer;
-    margin: 6px;
     background-color: #6FA4CC;
+    border: 2px solid #6FA4CC;
     border-radius: 5px;
     transition: .3s;
 }
 
-.bar:hover {
+.bar:hover .check {
     background-color: #fff;
 }
 
@@ -54,6 +56,7 @@ input[name="r"] {
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding-bottom: 50px;
 }
 
 .slide {
@@ -106,6 +109,8 @@ p {
     width: 100%;
     flex-grow: 0;
     flex-shrink: 0;
+    font-size: 24px;
+    color: #fff;
 }
 
 .images {
@@ -141,4 +146,58 @@ img {
     display: flex;
     transition: .5s ease-in;
     font-size: 2em;
+}
+
+.container__item:nth-child(2) {
+    width: 1100px;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: -25px;
+}
+
+#r1:checked+#r2+#r3+#r4+.images+.text+.navigation>label:nth-child(1) {
+    background-color: transparent;
+    transition: .3s;
+}
+
+#r2:checked+#r3+#r4+.images+.text+.navigation>label:nth-child(2) {
+    background-color: transparent;
+    transition: .3s;
+}
+
+#r3:checked+#r4+.images+.text+.navigation>label:nth-child(3) {
+    background-color: transparent;
+    transition: .3s;
+}
+
+#r4:checked+.images+.text+.navigation>label:nth-child(4) {
+    background-color: transparent;
+    transition: .3s;
+}
+
+@media (max-width: 1150px) {
+    .slider {
+        max-width: calc(100% - 40px);
+    }
+
+    .container__item:nth-child(2) {
+        max-width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 850px) {
+    .navigation {
+        justify-content: center;
+        margin-top: -45px;
+    }
+
+    .container__item:nth-child(2) {
+        margin-top: -45px;
+    }
+
+    .text {
+        margin-top: 25px;
+    }
 }
